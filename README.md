@@ -11,6 +11,7 @@ Zprovoznění:
 3) Vytvořte přes myPHPAdmin databázi knihovna a importuje soubor "knihovna 20-2-2020(nejnovejsi).sql"
 
 Účty:
+
 Admin - sasekp:123456789
 
 Uživatel - tranv:123456789
