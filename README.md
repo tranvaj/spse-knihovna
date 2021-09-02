@@ -12,4 +12,5 @@ Zprovoznění:
 
 Účty:
 Admin - sasekp:123456789
+
 Uživatel - tranv:123456789
