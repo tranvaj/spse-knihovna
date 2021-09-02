@@ -3,7 +3,7 @@ Knihovna SPŠE, školní projekt.
 
 Frontend: Přemek Š.
 
-Backend: Václav T.
+Backend: Václav T. 
 
 Zprovoznění:
 1) Nainstalujte XAMPP nebo podobný program, spusťte Apache modul a mySQL modul.

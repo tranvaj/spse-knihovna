@@ -1,6 +1,6 @@
 
 
-home.html - proměnné
+home.html - proměnné 
   tabulkaPujceni - dvojrozměrné pole, tabulka s knížkami k půjčení, https://stackoverflow.com/questions/38492062/multidimensional-array-in-twig
   strankynav - čísla stránek v <li> formě
 
