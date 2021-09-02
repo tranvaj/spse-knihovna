@@ -7,8 +7,8 @@ Backend: Václav T.
 
 Zprovoznění:
 1) Nainstalujte XAMPP nebo podobný program, spusťte Apache modul a mySQL modul.
-2) Pokud není myPHPAdmin nainstalovaný, učiňte tak.
-3) Vytvořte přes myPHPAdmin databázi knihovna a importuje soubor "knihovna 20-2-2020(nejnovejsi).sql"
+2) Pokud není PHPMyAdmin nainstalovaný, učiňte tak.
+3) Vytvořte přes PHPMyAdmin databázi knihovna a importuje soubor "knihovna 20-2-2020(nejnovejsi).sql"
 
 Účty:
 
