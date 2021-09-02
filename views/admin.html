@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Knihovna - VOŠ a SPŠE Plzeň</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/home.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+	</head>
+	<body>
+    <nav class="nevim2">
+      <a href="../login/home.php" class="button1">Home</a>
+<a href="../login/profile.php" class="button1">Profil</a>
+      <a href="../login/logout.php" class="button1">Odhlasit</a>
+    </nav>
+    <h1 style="clear:both;">Odepis knížek</h1>
+
+
+    <div class="container">
+    <form action="../functions/odepisknihyadmin.php" method="post">
+        <label>ID knížky:</label> <input class="form-control" type="text" name="knihaid"><br>
+        <label>Počet knih k odepisu:</label> <input class="form-control" type="text" name="pocetknih"><br>
+        <input type="submit" class="btn btn-primary" >
+    </form>
+
+    </div>
+<h1>Přidat knížku</h1>
+    <div class="container">
+    <form action="../functions/pridatKnihuAdmin.php" method="post">
+<label>Název knížky:</label> <input class="form-control" type="text" name="nazev"><br>
+<label>ISBNID (nepovinné):</label> <input class="form-control"  type="text" name="ISBNID"><br>
+<label>Počet:</label> <input class="form-control"  type="text" name="pocet"><br>
+<label>ID spisovatele:</label> <input class="form-control"  type="text" name="idspis"><br>
+<label>Poznámka:</label> <input class="form-control"  type="text" name="poznamka"><br>
+
+<input type="submit" class="btn btn-primary">
+</form>
+</div>
+<h1>Vrátit knížku</h1>
+<div class="container">
+<form action="../functions/vratitknihuadmin.php" method="post">
+  <label>ID knížky:</label> <input class="form-control"  type="text" name="bookID"><br>
+<label>ID výpujčky:</label> <input class="form-control"  type="text" name="vypujckaID"><br>
+<label>Počet k vrácení:</label> <input class="form-control"  type="text" name="pocetpujc"><br>
+<label>Poznámka:</label> <input class="form-control"  type="text" name="poznamka"><br>
+<input type="submit" class="btn btn-primary">
+</form>
+<table class="">
+
+{% for type, items in vypispujcek %}
+
+  <thead>
+<tr>
+  <th>IDKnížky</th>
+  <th>IDVýpůjčky</th>
+  <th>Uživatel</th>
+  <th>Datum půjčení</th>
+  <th>Datum vrácení</th>
+
+  <th>Kniha vrácena</th>
+  <th>Počet půjčených</th>
+  <th>Poznámka</th>
+
+
+</tr>
+</thead>
+<tr>
+
+
+{% for key, value in items %}
+{% if key == 5 %}
+   {% if value == 1 %}
+     <td class = "{{ key }}">Ano</td>
+   {% else %}
+     <td class = "{{ key }}">Ne</td>
+   {% endif %}
+   {% else %}
+   <td class = "{{ key }}">{{ value }}</td>
+   {% endif %}
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
+<div class="prepinanistr">
+			{{ strankynav|raw}}
+		</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</body>
+</html>

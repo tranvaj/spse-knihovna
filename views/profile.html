@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Knihovna - VOŠ a SPŠE Plzeň</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/profile.css" type="text/css">
+
+
+
+	</head>
+	<body>
+		<h1>Knihovna VOŠ a SPŠE</h1>
+		<nav class="nevim2">
+			<a href="../login/home.php" class="button1">Domovska stranka</a>
+			<a href="../login/logout.php" class="button1">Odhlasit</a>
+				{% if isadmin is not empty %}<a href="../login/administrace.php" class="button1">Administrace</a>{% endif %}
+		</nav>
+					<input type="submit" value="Přidání knih" name="pridaniKnihy" class="button">
+
+							<input type="submit" value="Odebrání knih" name="odebraniKnihy" class="button">
+
+
+				<input type="submit" value="Odhlásit" name="tlacikoodh" class="button">
+
+				<input type="submit" value="Home" name="tlacitkoprof" class="button">
+
+		    <input type="text" name="nazevKnizky" class="hledani" placeholder="Vyhledat knihu.." >
+
+
+
+{{ uzivatel	}}
+
+		<table>
+			<thead>
+    <tr>
+      <th>IDVýpůjčky</th>
+			<th>IDknihy</th>
+			<th>Uživatel</th>
+			<th>Nazev</th>
+
+			<th>Datum půjčení</th>
+			<th>Datum vrácení</th>
+			<th>Počet půjčených</th>
+			<th>Kniha vrácena</th>
+			<th>Poznámka</th>
+
+    </tr>
+  </thead>
+
+		{% for type, items in tabulkaPujceni %}
+		{% set val = 0 %}
+
+		<tr>
+
+
+    {% for key, value in items %}
+
+      	 {% if key == 7 %}
+				 		{% if value == 1 %}
+				 			<td class = "{{ key }}">Ano</td>
+				 		{% else %}
+				 			<td class = "{{ key }}">Ne</td>
+				 		{% endif %}
+				 		{% else %}
+				 		<td class = "{{ key }}">{{ value }}</td>
+				 		{% endif %}
+
+
+
+					{% if key == 6 %}
+					{% set val = value %}
+					{% endif %}
+    {% endfor %}	<td>
+				<select id="cars" name="cars">
+{% if val == 0 %}<option value="{{i}}">1</option>{% else %}
+					{% for i in range(1,val) %}
+						<option value="{{i}}">{{i}}</option>
+					 {% endfor %}
+					 {% endif %}
+				 </select>
+			<input type="submit" value="Vrátit" name="tlacitkoprof" class="pujcitButton"  >
+			<input type="submit" value="Poznámka" name="tlacitkoprof" class="addField">
+		</td>
+
+		</tr>
+
+{% endfor %}
+</table>
+<div class="prepinanistr">
+			{{ strankynav|raw}}
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+ $(".addField").on("click", function(event){
+   $(this).replaceWith("<textarea class='textfieldpoznamka form-control mt-2'  rows='3'  placeholder='Vaše poznámka (max. 255 písmen)...' maxlength='254'>");
+ });
+
+ $(function () {
+
+	$('.pujcitButton').on('click', function() {
+		$(this).find('.loadingbutton').show();
+		var x = $(this).parent().parent().find('.1').text();
+		var name = $(this).parent().parent().find('.2').text();
+		var a = $(this).parent().parent().find('.0').text();
+		var y = $(this).parent().parent().find('#cars').find(':selected').text();
+		var z = $(this).parent().find('.textfieldpoznamka').val();
+		$.ajax({
+			type: "POST",
+			url: '../functions/processReturn.php',
+			data:{id1: x, id2: y, id3: z, id4: a, id5: name},
+			success: function (result) {
+
+						alert(result);
+						location.reload(true);
+
+					}
+
+
+
+				});
+
+			});
+
+		});
+
+</script>
+</body>
+</html>

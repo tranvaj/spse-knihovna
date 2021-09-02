@@ -1,0 +1,34 @@
+
+
+home.html - proměnné
+  tabulkaPujceni - dvojrozměrné pole, tabulka s knížkami k půjčení, https://stackoverflow.com/questions/38492062/multidimensional-array-in-twig
+  strankynav - čísla stránek v <li> formě
+
+home.html - co se potřebuje dodělat na front endu
+  1)tlačítka, která odkazují na profile.php a logout.php (profil, odhlášení)
+  2)tlačítka půjčit a přidat poznámku, viz kód ve skriptu (používal jsem jquery,ajax)
+    -pomocí POST pošli všechna potřebná data do processOrder.php viz druhá funkce ( $_POST['id1,2 atd...'] )
+    -poznámka script viz funkce .addField
+    -udělej si to jak chceš, hlavně se všechny potřebná data musí dostavit do processOrder, kde se zpracuje půjčka
+    -POST id1 = id knížky, id2 = počet kusů k půjčení, id3 = poznámka ---> všechno poslat POSTem do processOrder.php, kde se to zpracuje
+  3) hledání knížek - pomocí GET, proměnná "$_GET['nazevKnizky']" (vygoogluj si php forms)
+
+profile.html - proměnné
+  tabulkaPujceni - dvojrozměrné pole, tabulka s knížkami k půjčení, https://stackoverflow.com/questions/38492062/multidimensional-array-in-twig
+  strankynav - čísla stránek v <li> formě
+
+profile.html - co se potřebuje dodělat
+  1) tlačítka hlavní stranka (home.php), odhlásit (logout.php)
+  2) vrátit a přidat poznámku viz kód ve skriptu (používal jsem jquery,ajax)
+
+
+    ! Data se posílají do processReturn.php !
+
+
+    -id1 = id knihy ,2= nazev uzivatele, 3= id vypujcky, 4= pocet kusu, kolik chceme vratit ,5 = poznamka
+    -poznámka script viz funkce .addField
+  3) vypujcky, které jsou starší více než 3 měsíce, se automaticky zabarví.
+
+
+
+info databáze - v databázi můžeš měnit hodnoty ohledně půjček a vypůjčení
