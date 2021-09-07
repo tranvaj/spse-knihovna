@@ -4,6 +4,7 @@ Knihovna SPŠE, školní projekt.
 Frontend: Šašek P.
 
 Backend: Tran V.
+Ukázka knihovny: https://streamable.com/wcet70
 
 Zprovoznění:
 1) Nainstalujte XAMPP nebo podobný program, spusťte Apache modul a mySQL modul.
